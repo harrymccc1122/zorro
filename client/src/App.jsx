@@ -45,8 +45,7 @@ export default function App() {
     }
   }, [rememberSteamId]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleFetchInventory = async () => {
     const success = await fetchInventory(steamIdInput);
     if (success && typeof window !== 'undefined') {
       if (rememberSteamId) {
@@ -65,7 +64,7 @@ export default function App() {
       <main className="container">
         <header className="app__header">
           <h1>Counter-Strike 2 Inventory Viewer</h1>
-          <form className="steam-form" onSubmit={handleSubmit} noValidate>
+          <form className="steam-form" noValidate>
             <div>
               <label htmlFor="steam-id-input">SteamID64</label>
               <input
@@ -77,11 +76,16 @@ export default function App() {
                 placeholder={EXAMPLE_STEAM_ID}
                 value={steamIdInput}
                 onChange={(event) => setSteamIdInput(event.target.value)}
-                onInvalid={(event) => event.preventDefault()}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    event.preventDefault();
+                    handleFetchInventory();
+                  }
+                }}
               />
               <small id="steam-id-helper">Enter a 17-digit SteamID64.</small>
             </div>
-            <button type="submit" disabled={loading}>
+            <button type="button" onClick={handleFetchInventory} disabled={loading}>
               {loading ? 'Loading…' : 'Load Inventory'}
             </button>
             <label className="remember-control">
