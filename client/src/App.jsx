@@ -77,6 +77,7 @@ export default function App() {
                 placeholder={EXAMPLE_STEAM_ID}
                 value={steamIdInput}
                 onChange={(event) => setSteamIdInput(event.target.value)}
+                onInvalid={(event) => event.preventDefault()}
               />
               <small id="steam-id-helper">Enter a 17-digit SteamID64.</small>
             </div>
