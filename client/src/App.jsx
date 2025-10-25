@@ -65,7 +65,7 @@ export default function App() {
       <main className="container">
         <header className="app__header">
           <h1>Counter-Strike 2 Inventory Viewer</h1>
-          <form className="steam-form" onSubmit={handleSubmit}>
+          <form className="steam-form" onSubmit={handleSubmit} noValidate>
             <div>
               <label htmlFor="steam-id-input">SteamID64</label>
               <input
