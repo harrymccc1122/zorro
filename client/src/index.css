@@ -1,0 +1,314 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f2933;
+  background-color: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+}
+
+body, input, button, select, textarea {
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px 48px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.app__header {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  margin-bottom: 24px;
+}
+
+.app__header h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+
+.steam-form {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+.steam-form label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.steam-form input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background-color: #f8fafc;
+}
+
+.steam-form small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.steam-form input[type="text"]:focus,
+.steam-form select:focus {
+  outline: 3px solid rgba(59, 130, 246, 0.35);
+  border-color: #3b82f6;
+}
+
+.steam-form button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.steam-form button:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.4);
+}
+
+.steam-form button:hover {
+  background: #1d4ed8;
+}
+
+.remember-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.status-message {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.status-message--error {
+  border-left: 4px solid #ef4444;
+}
+
+.status-message button {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #0ea5e9;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.summary-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.summary-bar strong {
+  color: #0f172a;
+}
+
+.filters {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.filters label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.filters select,
+.filters input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+}
+
+.filters__row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.filters__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.filters__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filters__actions button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #e2e8f0;
+  color: #1f2937;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filters__actions button:hover {
+  background: #cbd5e1;
+}
+
+.filters__actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.item-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.item-card__image-wrapper {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08), rgba(15, 23, 42, 0.08));
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-card__image-wrapper img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.item-card__placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e2e8f0;
+}
+
+.item-card__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-card__content h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.item-card__type {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.item-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.item-card__badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #1f2937;
+}
+
+.item-card__badge--rarity {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.item-card__badge--tradable {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.item-card__badge--not-tradable {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+@media (min-width: 720px) {
+  .steam-form {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .steam-form button {
+    margin-left: auto;
+  }
+
+  .steam-form .remember-control {
+    grid-column: 1 / -1;
+  }
+}
